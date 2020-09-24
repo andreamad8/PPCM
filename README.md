@@ -2,6 +2,7 @@
 <img src="pytorch-logo-dark.png" width="10%"> [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 <img align="right" src="HKUST.jpg" width="12%">
+<img align="right" src="deepmind.png" width="18%">
 
 This is the implementation of the paper:
 
