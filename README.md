@@ -95,7 +95,7 @@ For researcher working on abusive language, we have also responses generated usi
 
 
 ## Acknowledgement
-We would like to thanks the [**MLC**](http://mlcollective.org/) for the feedback on the earlystage of the work, and expecially [Jason Yosinski](http://yosinski.com/).This repository is implemented base on [**Huggingface**](https://github.com/huggingface/transfer-learning-conv-ai)
+We would like to thanks the [**MLC**](http://mlcollective.org/) for the feedback on the earlystage of the work, and expecially [Jason Yosinski](http://yosinski.com/). This repository is implemented base on [**Huggingface**](https://github.com/huggingface/transfer-learning-conv-ai)
 
 
 
