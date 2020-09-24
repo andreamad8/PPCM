@@ -82,15 +82,10 @@ Download the [**Human Evaluation Score**](https://drive.google.com/file/d/1BEtFR
 ❱❱❱ unzip human_evaluation.zip
 ```
 here you can find the jupiter notebook to replicate the human evaluation results and the human judgment scores.
+
 ***Run***
+Check the experiment_runner folder to see how to run the generation. 
 
-Check the experiment_runner folder 
-```console
-❱❱❱ unzip evaluate.zip
-❱❱❱ mv evaluate results
-❱❱❱ python evaluate.py
-
-```
 ## Toxicity
 For researcher working on abusive language, we have also responses generated using a toxic classifer. We can release it upon request exclusively for research purposes. 
 
