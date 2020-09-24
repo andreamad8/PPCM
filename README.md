@@ -28,14 +28,14 @@ further computation at decoding time, while also does not require any fine-tunin
 control over the generated conversational responses with regard to multiple 
 desired attributes, while being fluent. 
 
-## Plug-and-Play Conversational Models (PPCM):
+## Plug-and-Play Conversational Models (PPCM)
 <p align="center">
 <img src="PPCM.png" width="40%" />
 </p>
-Plug-and-Play Conversational Models (PPCM) is composed of several components: trainer for the heads, trainer for the scorer, trainer for the adapters, and main to run the generation. 
 
+This repo is under construction. 
 
-## Experiments
+## Reproducibility
 
 ***Dataset***
 
