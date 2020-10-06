@@ -1,7 +1,6 @@
 # Plug-and-Play Conversational Models
 <img src="pytorch-logo-dark.png" width="10%"> [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
-<img align="right" src="dm.png" width="12%">
 <img align="right" src="HKUST.jpg" width="12%">
 
 
