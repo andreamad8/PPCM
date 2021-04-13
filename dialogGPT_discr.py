@@ -16,8 +16,6 @@ from torchtext import data as torchtext_data
 from torchtext import datasets
 from tqdm import tqdm, trange
 import os
-from data.emocap.load_emocap_dataset import read_data, getMetrics
-from data.empathetic_dialogue.load_emph_dialogue import get_data_emotion
 from utils.helper import load_model, EOS_ID
 from models.heads import AttentionHead, ClassificationHead, Discriminator
 from sklearn.metrics import f1_score
