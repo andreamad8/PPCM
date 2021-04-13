@@ -6,11 +6,17 @@
 
 This is the implementation of the paper:
 
-**Plug-and-Play Conversational Models**. [**Andrea Madotto**](https://andreamad8.github.io), Etzuko Ishii, [**Zhaojiang Lin**](https://zlinao.github.io/), [**Sumanth Dathathri**](https://dathath.github.io/), Pascale Fung [[PDF]]() **EMNLP2020** (findings)
+**Plug-and-Play Conversational Models**. [**Andrea Madotto**](https://andreamad8.github.io), Etzuko Ishii, [**Zhaojiang Lin**](https://zlinao.github.io/), [**Sumanth Dathathri**](https://dathath.github.io/), Pascale Fung [[PDF]]https://www.aclweb.org/anthology/2020.findings-emnlp.219/) **EMNLP2020** (findings)
  
 If you use any source codes or datasets included in this toolkit in your work, please cite the following paper. The bibtex is listed below:
 <pre>
-
+@inproceedings{madotto2020plug,
+  title={Plug-and-Play Conversational Models},
+  author={Madotto, Andrea and Ishii, Etsuko and Lin, Zhaojiang and Dathathri, Sumanth and Fung, Pascale},
+  booktitle={Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: Findings},
+  pages={2422--2433},
+  year={2020}
+}
 </pre>
 
 ## Abstract
@@ -32,7 +38,38 @@ desired attributes, while being fluent.
 <img src="PPCM.png" width="40%" />
 </p>
 
-This repo is under construction. 
+## Basic Usage
+
+### Discriminator Training
+```
+python dialogGPT_discr.py --save_model --dataset sentiment --cached --epochs 100 
+python dialogGPT_discr.py --save_model --dataset daily_dialogue_act --cached --epochs 100 
+python dialogGPT_discr.py --save_model --dataset TC_AG_NEWS --cached --epochs 50 
+python dialogGPT_discr.py --save_model --dataset TC_SogouNews --cached --epochs 50 
+python dialogGPT_discr.py --save_model --dataset TC_DBpedia --cached --epochs 10 
+python dialogGPT_discr.py --save_model --dataset TC_YahooAnswers --cached --epochs 10 
+```
+### Run PPLM
+```
+python main.py -D AG_NEWS --label_class 0 --length 30 --num_samples 10 --evaluate --verbose --all_starter --wd
+python main.py -D AG_NEWS --label_class 1 --length 30 --num_samples 10 --evaluate --verbose --all_starter --wd
+python main.py -D AG_NEWS --label_class 2 --length 30 --num_samples 10 --evaluate --verbose --all_starter --wd
+python main.py -D AG_NEWS --label_class 3 --length 30 --num_samples 10 --evaluate --verbose --all_starter --wd
+python main.py -D sentiment --label_class 3 --length 30 --num_samples 10 --evaluate --verbose --all_starter
+python main.py -D sentiment --label_class 2 --length 30 --num_samples 10 --evaluate --verbose --all_starter
+python main.py -D daily_dialogue_act --label_class 1 --length 30 --num_samples 10 --evaluate --verbose --all_starter
+```
+
+### Run Adapter 
+```
+python train_supervised_adapter.py --dataset SENT --label very_negative --iter 75 --lr 6.25e-4
+python train_supervised_adapter.py --dataset SENT --label very_positive --iter 25
+python train_supervised_adapter.py --dataset QUEST --label question --iter 25
+python train_supervised_adapter.py --dataset TOPI --label Business --iter 25
+python train_supervised_adapter.py --dataset TOPI --label SciTech --iter 25
+python train_supervised_adapter.py --dataset TOPI --label Sports --iter 25
+```
+
 
 ## Reproducibility
 
