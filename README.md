@@ -6,7 +6,7 @@
 
 This is the implementation of the paper:
 
-**Plug-and-Play Conversational Models**. [**Andrea Madotto**](https://andreamad8.github.io), Etzuko Ishii, [**Zhaojiang Lin**](https://zlinao.github.io/), [**Sumanth Dathathri**](https://dathath.github.io/), Pascale Fung [[PDF]]https://www.aclweb.org/anthology/2020.findings-emnlp.219/) **EMNLP2020** (findings)
+**Plug-and-Play Conversational Models**. [**Andrea Madotto**](https://andreamad8.github.io), Etzuko Ishii, [**Zhaojiang Lin**](https://zlinao.github.io/), [**Sumanth Dathathri**](https://dathath.github.io/), Pascale Fung [[PDF]](https://www.aclweb.org/anthology/2020.findings-emnlp.219/) **EMNLP2020** (findings)
  
 If you use any source codes or datasets included in this toolkit in your work, please cite the following paper. The bibtex is listed below:
 <pre>
