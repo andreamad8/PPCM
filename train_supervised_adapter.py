@@ -19,7 +19,6 @@ import glob
 import jsonlines
 from utils.helper import parse_prefixes
 from nltk import tokenize
-from metric.lm_score import resp_ppl
                     
 ######################################################################################
 # CUDA_VISIBLE_DEVICES=1 python train_supervised_adapter.py --dataset SENT --label very_negative --iter 75 (1)
