@@ -54,7 +54,9 @@ def run_model():
     parser.add_argument("--load_check_point_adapter", type=str, default="None")
     parser.add_argument("--task_id", type=int, default=0)
     parser.add_argument("--trial_id", type=int, default=1)
-
+    parser.add_argument("--entailment", type=bool, default=False)
+    parser.add_argument("--BCE", type=bool, default=False)
+    parser.add_argument("--bag_of_words", type=str, default=None)
     args = parser.parse_args()
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed(args.seed)
