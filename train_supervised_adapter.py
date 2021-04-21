@@ -19,6 +19,7 @@ import glob
 import jsonlines
 from utils.helper import parse_prefixes
 from nltk import tokenize
+from metric.lm_score import get_ppl
                     
 ######################################################################################
 # CUDA_VISIBLE_DEVICES=1 python train_supervised_adapter.py --dataset SENT --label very_negative --iter 75 (1)
@@ -101,7 +102,7 @@ def make_data_loader(args,tokenizer):
     with jsonlines.open(f) as reader: 
         for i, obj in enumerate(reader):
             text = " ".join(tokenize.sent_tokenize(obj["hyp"]["PPLM"][0][-1])[:2])
-            score = resp_ppl(text)
+            score = get_ppl(text)
             if score>700:
                 continue
             response.append(obj['conversation']['conversation']+[text])
