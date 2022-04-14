@@ -3,6 +3,8 @@ import argparse
 import torch
 import numpy as np
 from transformers import GPT2Tokenizer
+
+from interact_adapter import interact
 from utils.helper import load_classifier, load_model, load_model_recursive
 from evaluate import evaluate
 
@@ -86,8 +88,10 @@ def run_model():
     ## set iter to 50 to run WD
     param_grid = {'iter': [75], 'window': [0], 'steps': [0.02]}
 
-    if(args.evaluate): evaluate(args,model,tokenizer,classifier,args.entailment,args.task_ent,class2idx,param_grid,device,logger)
-    else: print("remeber to add --interact")
+    if(args.evaluate):
+        evaluate(args,model,tokenizer,classifier,args.entailment,args.task_ent,class2idx,param_grid,device,logger)
+    else:
+        interact(args, model, tokenizer, classifier, class2idx, device)
 
 if __name__ == '__main__':
     run_model()
