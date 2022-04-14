@@ -50,6 +50,7 @@ python dialogGPT_discr.py --save_model --dataset TC_DBpedia --cached --epochs 10
 python dialogGPT_discr.py --save_model --dataset TC_YahooAnswers --cached --epochs 10 
 ```
 ### Run PPLM
+By omitting the `--evaluate` flag, you can run PPLM in an interactive mode.
 ```
 python main.py -D AG_NEWS --label_class 0 --length 30 --num_samples 10 --evaluate --verbose --all_starter --wd
 python main.py -D AG_NEWS --label_class 1 --length 30 --num_samples 10 --evaluate --verbose --all_starter --wd
@@ -71,7 +72,12 @@ python train_supervised_adapter.py --dataset TOPI --label Sports --iter 25
 ```
 
 
+
 ## Reproducibility
+
+You can **simply run** `./download_data.sh` to download and extract all required files, or you can perform the required actions manually, by following the steps outlined bellow:  
+
+### Manual setup
 
 ***Dataset***
 
