@@ -1,11 +1,9 @@
 import jsonlines
-import glob
 import numpy as np
-import copy 
-from collections import defaultdict
+import copy
 from tabulate import tabulate
 from transformers import GPT2Tokenizer
-from utils.helper import parse_prefixes, truncate
+from utils.helper import truncate
 from metric.dist_score import eval_distinct
 from metric.lm_score import get_ppl_simplified
 from metric.sentiment_classifiers import get_sentiment_score, get_vater_score

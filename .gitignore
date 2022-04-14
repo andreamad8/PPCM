@@ -1,0 +1,9 @@
+.idea
+venv
+**/__pycache__/
+
+data
+human_evaluation
+models/dialoGPT
+models/discriminators
+results

@@ -19,7 +19,6 @@ import subprocess
 import tempfile
 import numpy as np
 from collections import Counter
-from six.moves import urllib
 
 
 # -*- coding: utf-8 -*-

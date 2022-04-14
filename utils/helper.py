@@ -6,7 +6,7 @@ rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
 #rc('font',**{'family':'serif','serif':['Palatino']})
 # rc('text', usetex=True)
 import matplotlib.pyplot as plt
-from models.heads import AttentionHead, ClassificationHead, Discriminator
+from models.heads import Discriminator
 import os
 import torch
 import torch.nn as nn
@@ -22,9 +22,9 @@ def load_classifier(args,model):
     print(f"Loading Classifier {args.discrim}")
     classifier = None
     class2idx = None
+    idx2class = ["positive", "negative", "very positive", "very negative", "neutral"]
+    
     if args.discrim == 'sentiment':
-        idx2class = ["positive", "negative", "very positive", "very negative",
-                     "neutral"]
         class2idx = {c: i for i, c in enumerate(idx2class)}
         classes_num = len(idx2class)
         models_weight = "models/discriminators/DIALOGPT_sentiment_classifier_head_epoch_10.pt"

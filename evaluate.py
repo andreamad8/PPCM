@@ -1,17 +1,14 @@
 from tabulate import tabulate
 tabulate.PRESERVE_WHITESPACE = True
-from utils.helper import load_classifier, load_model, cut_seq_to_eos, parse_prefixes, get_name
-from utils.helper import EOS_ID, find_ngrams, dist_score, truncate, pad_sequences, print_loss_matplotlib
+from utils.helper import cut_seq_to_eos, parse_prefixes, get_name
+from utils.helper import EOS_ID, print_loss_matplotlib
 from utils.utils_sample import scorer
 from sklearn.model_selection import ParameterGrid
 from models.pplm import latent_perturb
 from models.wd import weight_decoder
-import torch
 import os
 import numpy as np
 import jsonlines
-from models.pytorch_pretrained_bert import GPT2LMHeadModel, GPT2Config
-from utils.helper import load_model
 
 def make_header(args,id_starter,knowledge):
     str_title = ""

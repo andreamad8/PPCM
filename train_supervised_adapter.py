@@ -1,7 +1,6 @@
-#from models.pytorch_pretrained_bert import GPT2LMHeadModel, GPT2Config
 from models.pytorch_pretrained_bert.modeling_adapter import GPT2LMHeadModel, GPT2Config
 from transformers import (AdamW,WEIGHTS_NAME, CONFIG_NAME)
-from utils.helper import load_model, average_distributed_scalar, load_model_recursive
+from utils.helper import average_distributed_scalar, load_model_recursive
 from argparse import ArgumentParser
 from transformers import GPT2Tokenizer
 from itertools import chain
@@ -15,9 +14,7 @@ from ignite.contrib.handlers import ProgressBar, PiecewiseLinear
 from ignite.contrib.handlers.tensorboard_logger import TensorboardLogger, OutputHandler, OptimizerParamsHandler
 import math
 from pprint import pformat
-import glob
 import jsonlines
-from utils.helper import parse_prefixes
 from nltk import tokenize
 from metric.lm_score import get_ppl
                     

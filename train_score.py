@@ -1,27 +1,13 @@
 import argparse
-import csv
-import json
-import math
 import time
-from sklearn.model_selection import train_test_split
-import numpy as np
 import torch
-import torch.nn.functional as F
 import torch.optim
 import torch.optim as optim
-import torch.utils.data as data
 import torch.nn as nn
 from sklearn.metrics import f1_score
 
-from nltk.tokenize.treebank import TreebankWordDetokenizer
 from torchtext import data as torchtext_data
-from torchtext import datasets
-from tqdm import tqdm, trange
-import os
-from data.emocap.load_emocap_dataset import read_data, getMetrics
-from data.empathetic_dialogue.load_emph_dialogue import get_data_emotion
-from utils.helper import load_model, EOS_ID
-from models.heads import AttentionHead, ClassificationHead, Scorer
+from models.heads import Scorer
 from transformers import BertTokenizer, AdamW
 
 

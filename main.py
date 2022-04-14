@@ -1,17 +1,12 @@
-from comet_ml import Experiment
 import os
 import argparse
 import torch
 import numpy as np
-from dialogGPT_discr import Discriminator
-from models.pytorch_pretrained_bert import GPT2LMHeadModel, GPT2Config
 from transformers import GPT2Tokenizer
-import random
-from utils.helper import load_classifier, load_model, cut_seq_to_eos, parse_prefixes, load_model_recursive
-from utils.helper import EOS_ID, find_ngrams, dist_score, truncate, pad_sequences, print_loss_matplotlib
-from interact import interact
+
+from interact_adapter import interact
+from utils.helper import load_classifier, load_model, load_model_recursive
 from evaluate import evaluate
-from selfchat import self_chat
 
 def run_model():
     parser = argparse.ArgumentParser()
@@ -93,8 +88,10 @@ def run_model():
     ## set iter to 50 to run WD
     param_grid = {'iter': [75], 'window': [0], 'steps': [0.02]}
 
-    if(args.evaluate): evaluate(args,model,tokenizer,classifier,args.entailment,args.task_ent,class2idx,param_grid,device,logger)
-    else: print("remeber to add --interact")
+    if(args.evaluate):
+        evaluate(args,model,tokenizer,classifier,args.entailment,args.task_ent,class2idx,param_grid,device,logger)
+    else:
+        interact(args, model, tokenizer, classifier, class2idx, device)
 
 if __name__ == '__main__':
     run_model()

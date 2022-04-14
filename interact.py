@@ -1,13 +1,10 @@
 from tabulate import tabulate
 tabulate.PRESERVE_WHITESPACE = True
-from utils.helper import load_classifier, load_model, cut_seq_to_eos, parse_prefixes
-from utils.helper import EOS_ID, find_ngrams, dist_score, truncate, pad_sequences, print_loss_matplotlib
-from sklearn.model_selection import ParameterGrid
+from utils.helper import EOS_ID
 from models.pplm import latent_perturb
 from utils.utils_sample import scorer
 import torch.nn.functional as F
 import torch
-import numpy as np
 
 
 def top_k_logits(logits, k, probs=False):

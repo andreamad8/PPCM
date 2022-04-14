@@ -1,13 +1,10 @@
 from tabulate import tabulate
 tabulate.PRESERVE_WHITESPACE = True
-from utils.helper import load_classifier, load_model, cut_seq_to_eos, parse_prefixes
-from utils.helper import EOS_ID, find_ngrams, dist_score, truncate, pad_sequences, print_loss_matplotlib
-from sklearn.model_selection import ParameterGrid
+from utils.helper import load_classifier
+from utils.helper import EOS_ID
 from utils.utils_sample import scorer
 import torch.nn.functional as F
 import torch
-import numpy as np
-from train_supervised_adapter import TASK_MAP
 from nltk import tokenize
 
 #CUDA_VISIBLE_DEVICES=2 python main.py -D sentiment --label_class 3 --length 30 --num_samples 1 --interact --verbose --speaker DGPT --load_check_point_adapter runs/SENT_very_negative_Mar30_13-59-53/pytorch_model.bin
@@ -28,7 +25,7 @@ def top_k_logits(logits, k, probs=False):
         return torch.where(logits < batch_mins, torch.ones_like(logits) * -1e10, logits)
 
 def sample(model, args, context=None, past=None, device='cuda',
-                       sample=True, repetition_penalty=1.0, task_id = -1):
+                       sample=True, repetition_penalty=1.0):
     output = torch.tensor(context, device=device, dtype=torch.long) if context else None
     output_response = output.new_zeros([output.size(0),0])
     stopped = [0 for _ in range(output.size(0))]
@@ -36,9 +33,9 @@ def sample(model, args, context=None, past=None, device='cuda',
 
         if past is None and output is not None:
             prev = output[:, -1:]
-            _, past = model(output[:, :-1],task_id=task_id)
+            _, past = model(output[:, :-1])
 
-        logits, past = model(prev, past=past, task_id=task_id)
+        logits, past = model(prev, past=past)
 
         logits = logits[:, -1, :] / args.temperature  # + SmallConst
         for i_o, o_ in enumerate(output):
@@ -112,7 +109,7 @@ def get_rankers(args,model):
 
     return classifiers
 
-def interact(args,model,enc,classifier,class2idx,speaker,device,logger,task_id=0):
+def interact(args,model,enc,classifier,class2idx,device):
     classifiers = get_rankers(args,model)
     history = []
     while True:
@@ -176,7 +173,7 @@ def interact(args,model,enc,classifier,class2idx,speaker,device,logger,task_id=0
         context_tokens = [context_tokens for _ in range(args.num_samples)]
 
         original_sentence = sample(model=model,args=args, context=context_tokens, device=device,
-                            repetition_penalty=args.repetition_penalty, task_id=task_id)
+                            repetition_penalty=args.repetition_penalty)
         spk_turn = {"text":original_sentence.tolist()}
         hypotesis, _, _ = scorer(args,spk_turn,classifier,enc,class2idx,knowledge=None,plot=False)
         text = hypotesis[0][-1]
