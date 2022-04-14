@@ -22,8 +22,7 @@ def load_classifier(args,model):
     print(f"Loading Classifier {args.discrim}")
     classifier = None
     class2idx = None
-    idx2class = ["positive", "negative", "very positive", "very negative",
-                 "neutral"]
+    idx2class = ["positive", "negative", "very positive", "very negative", "neutral"]
     
     if args.discrim == 'sentiment':
         class2idx = {c: i for i, c in enumerate(idx2class)}
