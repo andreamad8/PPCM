@@ -40,6 +40,9 @@ desired attributes, while being fluent.
 
 ## Basic Usage
 
+### Dependencies
+Create a `python3.6` virtual environment and run `pip install -r requirements.txt`.
+
 ### Discriminator Training
 ```
 python dialogGPT_discr.py --save_model --dataset sentiment --cached --epochs 100 
