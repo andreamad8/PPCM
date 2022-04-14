@@ -6,7 +6,7 @@ rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
 #rc('font',**{'family':'serif','serif':['Palatino']})
 # rc('text', usetex=True)
 import matplotlib.pyplot as plt
-from models.heads import AttentionHead, ClassificationHead, Discriminator
+from models.heads import Discriminator
 import os
 import torch
 import torch.nn as nn

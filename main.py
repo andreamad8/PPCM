@@ -1,17 +1,10 @@
-from comet_ml import Experiment
 import os
 import argparse
 import torch
 import numpy as np
-from dialogGPT_discr import Discriminator
-from models.pytorch_pretrained_bert import GPT2LMHeadModel, GPT2Config
 from transformers import GPT2Tokenizer
-import random
-from utils.helper import load_classifier, load_model, cut_seq_to_eos, parse_prefixes, load_model_recursive
-from utils.helper import EOS_ID, find_ngrams, dist_score, truncate, pad_sequences, print_loss_matplotlib
-from interact import interact
+from utils.helper import load_classifier, load_model, load_model_recursive
 from evaluate import evaluate
-from selfchat import self_chat
 
 def run_model():
     parser = argparse.ArgumentParser()

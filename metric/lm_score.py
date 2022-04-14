@@ -1,5 +1,4 @@
 from transformers import GPT2Tokenizer,GPT2LMHeadModel
-from pytorch_pretrained_bert import OpenAIGPTTokenizer, OpenAIGPTModel, OpenAIGPTLMHeadModel
 import torch
 import numpy as np
 import math

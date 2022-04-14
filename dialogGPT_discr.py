@@ -1,13 +1,8 @@
 import argparse
-import csv
-import json
-import math
 import time
 from sklearn.model_selection import train_test_split
 import numpy as np
-import pandas as pd
 import torch
-import torch.nn.functional as F
 import torch.optim
 import torch.optim as optim
 import torch.utils.data as data
@@ -15,11 +10,8 @@ from nltk.tokenize.treebank import TreebankWordDetokenizer
 from torchtext import data as torchtext_data
 from torchtext import datasets
 from tqdm import tqdm, trange
-import os
-from utils.helper import load_model, EOS_ID
-from models.heads import AttentionHead, ClassificationHead, Discriminator
+from models.heads import Discriminator
 from sklearn.metrics import f1_score
-import torchtext
 from utils.torchtext_text_classification import AG_NEWS 
 torch.manual_seed(0)
 np.random.seed(0)

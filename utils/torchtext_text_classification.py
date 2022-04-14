@@ -4,7 +4,6 @@ import io
 from torchtext.utils import download_from_url, extract_archive, unicode_csv_reader
 from torchtext.data.utils import ngrams_iterator
 from torchtext.data.utils import get_tokenizer
-from torchtext.vocab import build_vocab_from_iterator
 from torchtext.vocab import Vocab
 from tqdm import tqdm
 

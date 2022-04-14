@@ -1,5 +1,4 @@
 from models.heads import Scorer
-from utils.utils_sample import predict
 import numpy as np
 import torch
 from transformers import BertTokenizer
